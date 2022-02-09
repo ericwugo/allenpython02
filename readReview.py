@@ -28,5 +28,13 @@ for d in data :
 print("一共有", len(good), "筆留言 裡面有 Good ")
 print(good[0])
 
+good1 = [d for d in data if "good" in d]
+print("List comprehensive 寫法 一共有", len(good1), "筆留言 裡面有 Good ")
+
+
+bad = ["bad" in d for d in data]  # 如果留言裡面有 bad 就 出現 True, 沒有就出現 False
+print("List comprehensive 寫法 一共有", len(bad), "筆留言 裡面有 True or False")
+#print(bad)
+
 
 
