@@ -1,13 +1,20 @@
-# 二維 List 紀錄 商品名稱 與 價錢
-# 讀取檔案
+import os
+# 讀取檔案 並檢查 檔案是否存在 (os.path.isfile(檔名))
 products = []
-with open("products.csv", "r", encoding="utf-8") as f :
-	for line in f:
-		if "商品,價格" in line:
-			continue
-		name, price = line.strip().split(",")
-		products.append([name,price])
-print(products)
+if os.path.isfile("products.csv") :
+	print("yeah ! 找到檔案了")
+	with open("products.csv", "r", encoding="utf-8") as f :
+		for line in f:
+			if "商品,價格" in line:
+				continue
+			name, price = line.strip().split(",")
+			products.append([name,price])
+	print(products)
+
+else :
+	print("找不到檔案......")
+
+# 二維 List 紀錄 商品名稱 與 價錢
 
 #讓使用者輸入
 while True :
