@@ -5,9 +5,12 @@ while True :
 	if name == "q" :
 		break
 	price = input("請輸入商品價格 :")
-	p = []
-	p.append(name)
-	p.append(price)
+	# p = []
+	# p.append(name)
+	# p.append(price)
+	p = [name, price] # 用這一行 取代前三行
 	products.append(p)
 print(products)
+products[0][0] # 取出低一個商品的名稱
+
 
