@@ -1,5 +1,13 @@
 # 二維 List 紀錄 商品名稱 與 價錢
 products = []
+
+with open("products.csv", "r", encoding="utf-8") as f :
+	for line in f:
+		name, price = line.strip().split(",")
+		products.append([name,price])
+
+print(products)
+
 while True :
 	name = input("請輸入商品名稱 :")
 	if name == "q" :
