@@ -1,13 +1,15 @@
 # 二維 List 紀錄 商品名稱 與 價錢
+# 讀取檔案
 products = []
-
 with open("products.csv", "r", encoding="utf-8") as f :
 	for line in f:
+		if "商品,價格" in line:
+			continue
 		name, price = line.strip().split(",")
 		products.append([name,price])
-
 print(products)
 
+#讓使用者輸入
 while True :
 	name = input("請輸入商品名稱 :")
 	if name == "q" :
@@ -22,10 +24,11 @@ while True :
 print(products)
 print(products[0][0]) # 取出低一個商品的名稱
 
+#印出所有購買資料
 for p in products : # 印出 商品名稱與價錢
 	print(p[0], "的價錢是 :", p[1])
 
-
+#寫入檔案
 with open("products.csv", "w", encoding="utf-8") as f : # 顯示正確中文的編碼 utf-8
 	f.write("商品,價格\n")
 	for p in products :
