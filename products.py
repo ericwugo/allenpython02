@@ -18,7 +18,8 @@ for p in products : # 印出 商品名稱與價錢
 	print(p[0], "的價錢是 :", p[1])
 
 
-with open("products.csv", "w") as f :
+with open("products.csv", "w", encoding="utf-8") as f : # 顯示正確中文的編碼 utf-8
+	f.write("商品,價格\n")
 	for p in products :
 		f.write(p[0] + "," + str(p[1]) + "\n")
-		
+
