@@ -1,3 +1,4 @@
+import time
 data = []
 count = 0
 with open("reviews.txt", "r") as f :
@@ -10,6 +11,8 @@ print("總共有", len(data), "筆資料")
 
 print(data[0])
 
+#文字計數
+start_time = time.time() # 單位是秒
 wc = {}
 for d in data :
 	words = d.split()
@@ -24,7 +27,12 @@ for word in wc:
 		print(word , wc[word])
 
 print(len(wc))
+end_time = time.time()
 
+print("花了", end_time - start_time, "seconds")
+
+
+#文字查找
 while True :
 	word = input("請輸入要查詢的字 :")
 	if word == "q":
@@ -38,33 +46,33 @@ print("感謝使用")
 
 
 
-# sum_len = 0
-# for d in data :
-# 	sum_len += len(d)
+sum_len = 0
+for d in data :
+	sum_len += len(d)
 
-# print("留言的平均長度為 :", sum_len/len(data))
+print("留言的平均長度為 :", sum_len/len(data))
 
-# new = []
-# for d in data :
-# 	if len(d) < 100 :
-# 		new.append(d)
-# print("一共有", len(new), "筆留言 長度小於 100")
-
-
-# good = []
-# for d in data :
-# 	if "good" in d :
-# 		good.append(d)
-# print("一共有", len(good), "筆留言 裡面有 Good ")
-# print(good[0])
-
-# good1 = [d for d in data if "good" in d]
-# print("List comprehensive 寫法 一共有", len(good1), "筆留言 裡面有 Good ")
+new = []
+for d in data :
+	if len(d) < 100 :
+		new.append(d)
+print("一共有", len(new), "筆留言 長度小於 100")
 
 
-# bad = ["bad" in d for d in data]  # 如果留言裡面有 bad 就 出現 True, 沒有就出現 False
-# print("List comprehensive 寫法 一共有", len(bad), "筆留言 裡面有 True or False")
-# #print(bad)
+good = []
+for d in data :
+	if "good" in d :
+		good.append(d)
+print("一共有", len(good), "筆留言 裡面有 Good ")
+print(good[0])
+
+good1 = [d for d in data if "good" in d]
+print("List comprehensive 寫法 一共有", len(good1), "筆留言 裡面有 Good ")
+
+
+bad = ["bad" in d for d in data]  # 如果留言裡面有 bad 就 出現 True, 沒有就出現 False
+print("List comprehensive 寫法 一共有", len(bad), "筆留言 裡面有 True or False")
+#print(bad)
 
 
 
